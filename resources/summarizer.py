@@ -23,6 +23,8 @@ class Summarizer(Resource):
     print("\n\nSentences w/o Puntuation: ", clean_sents)
     sent_words = tokenize.get_words(clean_sents)
     print("\n\nWord Tokenized Sentences: ", sent_words)
+    summary = tr.text_rank(clean_sents, sent_words, lang, sentences)
+    print("\n\nSummary: \n", summary)
 
-    return jsonify(data=data, lemmatized_sentences=lemmatized_sentences, sentences=sentences, 
-      clean_sents=clean_sents, sent_words=sent_words)
+    return jsonify(data=data, lemmatized_sentences=lemmatized_sentences, sentences=sentences, \
+      clean_sents=clean_sents, sent_words=sent_words, summary=summary)

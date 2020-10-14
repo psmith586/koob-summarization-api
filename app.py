@@ -10,4 +10,4 @@ api.add_resource(Summarizer, "/api/v1/summarize")
 
 
 if __name__ == "__main__":
-  app.run()
+  app.run(debug=True)

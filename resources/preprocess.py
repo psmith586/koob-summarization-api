@@ -1,14 +1,11 @@
 from langdetect import detect
 from nltk.stem import WordNetLemmatizer, SnowballStemmer
 from string import punctuation
-from nltk.corpus import stopwords
 from nltk import word_tokenize
 
 def check_lang(text):
   language = detect(text)
   return language
-def set_stopwords(language):
-  return stopwords.words(language)
 
 def remove_punctuation(text):
   char_list = [char for char in text if char not in punctuation]
