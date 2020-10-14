@@ -7,6 +7,8 @@ from nltk import word_tokenize
 def check_lang(text):
   language = detect(text)
   return language
+def set_stopwords(language):
+  return stopwords.words(language)
 
 def remove_punctuation(text):
   char_list = [char for char in text if char not in punctuation]
@@ -17,7 +19,6 @@ def remove_numbers(text):
   return ''.join(char_list)
 
 def lemmatize(text, language):
-  stopwords = stopwords.words(language)
   wordnet_lemmatizer = WordNetLemmatizer()
   word_tokens = word_tokenize(text)
   
@@ -31,7 +32,7 @@ def stem(text, lang):
   stemmed_words = [snowball_stemmer.stem(word) for word in word_tokens]
   return ' '.join(stemmed_words)
 
-
-
-
-
+def clean_sentences(sentences):
+  for x in range(len(sentences)):
+    sentences[x] = remove_punctuation(sentences[x])
+  return sentences  
