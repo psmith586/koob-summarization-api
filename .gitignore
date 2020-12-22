@@ -1,3 +1,4 @@
 .vscode
 textrankapi
 testcorpus.txt
+resources/__pycache__
